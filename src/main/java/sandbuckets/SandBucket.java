@@ -42,7 +42,8 @@ public class SandBucket extends Item {
 			return ActionResult.SUCCESS;
 		}
 
-		context.getPlayer().getInventory().setStack(context.getPlayer().getInventory().selectedSlot, Items.BUCKET.getDefaultStack());
+		context.getPlayer().getInventory().setStack(context.getPlayer().getInventory().selectedSlot,
+				Items.BUCKET.getDefaultStack());
 		world.setBlockState(pos, Blocks.SAND.getDefaultState());
 		return ActionResult.SUCCESS;
 	}
