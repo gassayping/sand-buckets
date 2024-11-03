@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Hand;
@@ -26,6 +28,8 @@ public class SandBucket extends Item {
 	@Override
 	public ActionResult use(World world, PlayerEntity user, Hand hand) {
 		user.playSound(SoundEvents.BLOCK_ANVIL_LAND, 0.5F, 1.0F);
+		//world.addBlockBreakParticles(user.getEyePos().add(user.getRotationVector()), Blocks.SAND.getDefaultState());
+		world.addParticle(ParticleTypes.CRIT, user.getEyePos().add(user.getRotationVector()).x, user.getEyePos().add(user.getRotationVector()).y, user.getEyePos().add(user.getRotationVector()).z, user.getRotationVector().x, user.getRotationVector().y, user.getRotationVector().z);
 		return ActionResult.SUCCESS;
 	}
 
